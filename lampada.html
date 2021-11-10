@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8"/>
+<title>Lampada</title>
+<style>
+    button {
+        background-color: #C3E0E5;
+        font-size: 20px;
+        font-family: sans-serif;
+        border-radius: 1em;
+        line-height: 2;
+        padding: 0.5em 1em;
+        border-width: 3px;
+        border-color: #274472;
+    }
+    button:hover {
+        background-color: #41729F;
+    }
+    h1 {
+        padding-top: 20px;
+        font-size: 30px;
+        color:#C3E0E5;
+    }
+    body{
+        background-color: #355070;
+    }
+    #lampada{
+        margin-top: 35px;
+    }
+</style>
+</head>
+<body>
+<!-- Conteúdo -->
+
+<img src="apagada.jpg" alt="lampada apagada" id="lampada" onclick="lamp()">
+
+<div>
+    <h1>Outra solução :)</h1>
+    <button onclick="acendeLamp()" id="button1">Acender Lâmpada</button>
+    <button onclick="apagaLamp()" id="button2">Apagar Lâmpada</button> 
+    <button onclick="quebraLamp()" id="button3">Quebrar Lâmpada</button>
+</div>
+
+<div id="lampada">
+    <img id="image" src="apagada.jpg" alt="teste">
+
+</div>
+<script>
+
+    function lamp(){
+        aux = document.getElementById("lampada").getAttribute('src');
+        if(aux == "apagada.jpg"){
+            document.getElementById("lampada").src = "acesa.jpg";
+        } else if(aux == "acesa.jpg"){
+            document.getElementById("lampada").src = "quebrada.jpg";
+        } else if(aux == "quebrada.jpg"){
+            document.getElementById("lampada").src = "apagada.jpg"
+        }
+    }
+    
+    var quebrada = new Boolean(false)
+    function acendeLamp(){
+        if (quebrada == false){
+            document.getElementById("image").src = "acesa.jpg"
+        }
+    }
+    function apagaLamp(){
+        if(quebrada == false){
+            document.getElementById("image").src = "apagada.jpg"
+        }
+    }
+    function quebraLamp(){
+        document.getElementById("image").src = "quebrada.jpg"
+        quebrada = true;
+    }
+</script>
+</body>
+</html>
